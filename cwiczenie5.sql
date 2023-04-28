@@ -9,7 +9,7 @@ CREATE DATABASE firma;
 
 CREATE SCHEMA rozliczenia;
 
--- 3) Tworzymy poszczególne tabele:
+-- 3) Tworzymy poszczegÃ³lne tabele:
 
 CREATE TABLE rozliczenia.pracownicy(
 	id_pracownika CHAR(8) PRIMARY KEY,
@@ -47,7 +47,7 @@ ADD FOREIGN KEY (id_pracownika) REFERENCES rozliczenia.pracownicy(id_pracownika)
 ALTER TABLE rozliczenia.pensje
 ADD FOREIGN KEY (id_premii) REFERENCES rozliczenia.premie(id_premii);
 
--- 4) Dodajemy po 10 rekordów do ka¿dej tabeli:
+-- 4) Dodajemy po 10 rekordÃ³w do kaÅ¼dej tabeli:
 
 INSERT INTO rozliczenia.pracownicy(
 
@@ -63,28 +63,28 @@ VALUES
 	'109D',
 	'Artur',
 	'Kowalski',
-	'S³oneczna 17/23, 12-345 Kraków',
+	'SÅ‚oneczna 17/23, 12-345 KrakÃ³w',
 	'+48234567890'
 ),
 (
 	'324B',
 	'Katarzyna',
 	'Nowak',
-	'Kwiatowa 12/34, 13-456 Kraków',
+	'Kwiatowa 12/34, 13-456 KrakÃ³w',
 	'+48123456789'
 ),
 (
 	'181K',
 	'Jacek',
 	'Makowski',
-	'Polna 25/1, 56-432 Kraków',
+	'Polna 25/1, 56-432 KrakÃ³w',
 	'+48456123789'
 ),
 (
 	'143W',
 	'Maria',
 	'Bielska',
-	'Szkolna 15/2, 24-053 Kraków',
+	'Szkolna 15/2, 24-053 KrakÃ³w',
 	'+48900837229'
 ),
 (
@@ -97,36 +97,36 @@ VALUES
 (
 	'238L',
 	'Piotr',
-	'Czy¿ewski',
-	'Opatowska, 32-321 Kraków',
+	'CzyÅ¼ewski',
+	'Opatowska, 32-321 KrakÃ³w',
 	'+48459000392'
 ),
 (
 	'307C',
 	'Wojciech',
 	'Witowski',
-	'Leœna, 30-082 Kraków',
+	'LeÅ›na, 30-082 KrakÃ³w',
 	'+48345229883'
 ),
 (
 	'123P',
 	'Adam',
 	'Misiak',
-	'Jana Kochanowskiego 2/13, 31-042 Kraków',
+	'Jana Kochanowskiego 2/13, 31-042 KrakÃ³w',
 	'+48200292843'
 ),
 (
 	'329A',
 	'Danuta',
 	'Sobota',
-	'Piêkna, 32-073 Skawina',
+	'PiÄ™kna, 32-073 Skawina',
 	'+48432999028'
 ),
 (
 	'410M',
 	'Amelia',
 	'Gwiazda',
-	'Kosmiczna, 31-083 Kraków',
+	'Kosmiczna, 31-083 KrakÃ³w',
 	NULL
 )
 
@@ -274,25 +274,25 @@ VALUES
 	'PEN1',
 	'P1',
 	6000,
-	'Ksiêgowy/a'
+	'KsiÄ™gowy/a'
 ),
 (
 	'PEN2',
 	'P2',
 	8500,
-	'Kierownik dzia³u produkcji'
+	'Kierownik dziaÅ‚u produkcji'
 ),
 (
 	'PEN3',
 	'P3',
 	6500,
-	'Manager finansów'
+	'Manager finansÃ³w'
 ),
 (
 	'PEN4',
 	'P4',
 	7800,
-	'Ksiêgowy/a'
+	'KsiÄ™gowy/a'
 ),
 (
 	'PEN5',
@@ -304,19 +304,19 @@ VALUES
 	'PEN6',
 	'P6',
 	7500,
-	'Manager Biura Obs³ugi Klienta'
+	'Manager Biura ObsÅ‚ugi Klienta'
 ),
 (
 	'PEN7',
 	'P7',
 	5600,
-	'M³odszy specjalista ds. marketingu'
+	'MÅ‚odszy specjalista ds. marketingu'
 ),
 (
 	'PEN8',
 	'P8',
 	7600,
-	'Pracownik Biura Obs³ugi Klienta'
+	'Pracownik Biura ObsÅ‚ugi Klienta'
 ),
 (
 	'PEN9',
@@ -331,14 +331,14 @@ VALUES
 	'Manager produkcji'
 )
 
---5) Wyœwietlamy nazwiska i adresy pracowników:
+--5) WyÅ›wietlamy nazwiska i adresy pracownikÃ³w:
 SELECT nazwisko, adres FROM rozliczenia.pracownicy;
 
---6) Przekonwertowanie daty w tabeli godziny, aby wyœwietlana by³a inf o dniu tygodnia i miesi¹cu:
+--6) Przekonwertowanie daty w tabeli godziny, aby wyÅ›wietlana byÅ‚a inf o dniu tygodnia i miesiÄ…cu:
 SET LANGUAGE 'Polish';
-SELECT DATEPART ( WEEKDAY , data ) as 'dzieñ ', DATEPART ( MONTH , data ) as 'miesi¹c' FROM rozliczenia.godziny;
+SELECT DATEPART ( WEEKDAY , data ) as 'dzieÅ„ ', DATEPART ( MONTH , data ) as 'miesiÄ…c' FROM rozliczenia.godziny;
 
---7) Zmieniamy nazwê na kwota brutto i dodajemy nowy atrybut kwota netto:
+--7) Zmieniamy nazwÄ™ na kwota brutto i dodajemy nowy atrybut kwota netto:
 EXEC sp_rename 'rozliczenia.pensje.kwota', 'kwota_brutto', 'COLUMN';
 
 ALTER TABLE rozliczenia.pensje
