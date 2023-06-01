@@ -1,6 +1,6 @@
-USE AdventureWorks2019
-GO;
---1)Napisz procedurê wypisuj¹c¹ do konsoli ci¹g Fibonacciego. Procedura musi przyjmowaæ jako argument wejœciowy liczbê n. Generowanie ci¹gu Fibonacciego musi zostaæ zaimplementowane jako osobna funkcja,wywo³ywana przez procedurê.
+USE AdventureWorks2019;
+
+--1)Napisz procedurÃª wypisujÂ¹cÂ¹ do konsoli ciÂ¹g Fibonacciego. Procedura musi przyjmowaÃ¦ jako argument wejÅ“ciowy liczbÃª n. Generowanie ciÂ¹gu Fibonacciego musi zostaÃ¦ zaimplementowane jako osobna funkcja,wywoÂ³ywana przez procedurÃª.
 
 CREATE OR ALTER FUNCTION dbo.fib(@wyraz int)
 RETURNS @wynik TABLE(fintab int)
@@ -34,7 +34,7 @@ END;
 
 EXEC dbo.fin 10;
 
---2)Napisz trigger DML, który po wprowadzeniu danych do tabeli Personszmodyfikuje nazwisko tak, aby by³o napisane du¿ymi literami. 
+--2)Napisz trigger DML, ktÃ³ry po wprowadzeniu danych do tabeli Personszmodyfikuje nazwisko tak, aby byÂ³o napisane duÂ¿ymi literami. 
 CREATE OR ALTER TRIGGER triggerupper
 ON Person.Person
 AFTER INSERT
@@ -55,7 +55,7 @@ VALUES (20778,'IN','Anna','Karolina','Kowalska');
 SELECT * FROM Person.BusinessEntity
 SELECT * FROM Person.Person WHERE Person.LastName = 'Kowalska'
 
--- Przygotuj trigger ‘taxRateMonitoring’, który wyœwietli komunikat o b³êdzie, je¿eli nast¹pi zmiana wartoœci w polu ‘TaxRate’o wiêcej ni¿ 30%.
+-- Przygotuj trigger â€˜taxRateMonitoringâ€™, ktÃ³ry wyÅ“wietli komunikat o bÂ³Ãªdzie, jeÂ¿eli nastÂ¹pi zmiana wartoÅ“ci w polu â€˜TaxRateâ€™o wiÃªcej niÂ¿ 30%.
 CREATE TRIGGER taxRateMonitoring
 ON Sales.SalesTaxRate
 AFTER INSERT, UPDATE, DELETE
